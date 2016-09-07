@@ -6,7 +6,7 @@ var cc = require('../ccPractice');
 const chai = require('chai');
 var expect = chai.expect;
 
-describe('Closure and Callback Exercises', function () {
+describe('Callback Exercises', function () {
   describe('Callback Exercise 1 - Calculator', function () {
     it('should have an add function that adds numbers', function () {
       expect(cc.add(1, 4)).to.eql(5)
@@ -58,22 +58,23 @@ describe('Closure and Callback Exercises', function () {
     })
   })
 
-  describe('Closures - Exercise 1', function () {
-    it("someFunc should return a function that adds it's input to the next", function () {
-      expect(cc.someFunc(1)(2)).to.eql(3)
-      expect(cc.someFunc(5)(2)).to.eql(7)
-      expect(cc.someFunc(6)(2)).to.eql(8)
+
+  describe('Exercise 3 - Splitter', function () {
+    it("reverseOrder should return a function that reverses the order of a string", function () {
+      expect(cc.splitter('A String',function(str){
+        var splitted = str.split("");
+        return splitted;
+      })).to.eql(['A',' ','S','t','r','i','n','g'])
+      expect(cc.splitter('ABC',function(str){
+        var splitted = str.split("");
+        return splitted;
+      })).to.eql(['A','B','C'])
+      expect(cc.splitter(' ',function(str){
+        var splitted = str.split("");
+        return splitted;
+      })).to.eql([' '])
     })
+
   })
 
-  describe('Closures - Exercise 2', function () {
-    it("someFunc should return a function that adds it's input to the next", function () {
-      cc.counter()
-      expect(cc.counter()).to.eql(5)
-      cc.counter()
-      expect(cc.counter()).to.eql(7)
-      cc.counter()
-      expect(cc.counter()).to.eql(9)
-    })
-  })
 })
